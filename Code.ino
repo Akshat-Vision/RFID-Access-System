@@ -7,9 +7,7 @@
 #include <WebServer.h>
 #include <MD_Parola.h>
 #include <MD_MAX72xx.h>
-#include <WebSocketsServer.h>  // Added for WebSocket support
-
-// Fix for MD_MAX72xx warnings
+#include <WebSocketsServer.h>
 #define USE_SPI_HW_TRANSACTIONS
 #define MD_MAX72XX_USE_SPI_HW_TRANSACTIONS
 #define MD_MAX72XX_SPI_USE_MUTEX
@@ -348,7 +346,7 @@ void handleRoot() {
   String html = "<!DOCTYPE html><html lang='en'><head>";
   html += "<meta charset='UTF-8'>";
   html += "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
-  html += "<title>MEDANTRIK Iron Lung Control</title>";
+  html += "<title>RFID Access webpage</title>";
   html += "<style>" + String(uiStyles) + "</style>";
   html += "<script>";
   html += "function saveConfig(formId) {";
@@ -393,8 +391,7 @@ void handleRoot() {
   html += "</script></head><body>";
   html += "<div class='container'>";
   html += "<div class='card status-card'>";
-  html += "<h1>MEDANTRIK Iron Lung Control</h1>";
-  html += "<div class='status-icon'>🧬</div>";
+  html += "<h1>RFID Access webpage</h1>";
   html += "<h3>Device ID: " + WiFi.macAddress() + "</h3>";
   html += "<p>IP Address: " + WiFi.localIP().toString() + "</p>";
   html += "<p>System Status: <strong>Operational</strong> <span id='ws-status' class='status-indicator status-online'></span></p>";
